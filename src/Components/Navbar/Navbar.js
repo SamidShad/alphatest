@@ -7,6 +7,7 @@ import styles from "./navbar.module.css";
 import { Pivot as Hamburger } from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
@@ -41,11 +42,17 @@ function Navbar() {
               className={styles.menu_links}
             >
               <ul>
-                <li onClick={MenuFunc}>Home</li>
+                <Link href="/">
+                  <li onClick={MenuFunc}>Home</li>
+                </Link>
                 <li onClick={MenuFunc}>About us</li>
-                <li onClick={MenuFunc}>Our Works</li>
+                <Link href="/ourworks">
+                  <li onClick={MenuFunc}>Our Works</li>
+                </Link>
                 <li onClick={MenuFunc}>Services</li>
-                <li onClick={MenuFunc}>Contact</li>
+                <Link href="/contact">
+                  <li onClick={MenuFunc}>Contact</li>
+                </Link>
               </ul>
             </motion.div>
           </motion.div>
