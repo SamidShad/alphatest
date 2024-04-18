@@ -12,6 +12,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navbar />
+        <div className="background_animation">
+          <div className="animated_balls"></div>
+          <div className="animated_balls"></div>
+          <div className="animated_balls"></div>
+        </div>
         {children}
       </body>
     </html>

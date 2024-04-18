@@ -19,38 +19,111 @@ body {
   background: black;
 }
 
+.background_animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated_balls {
+  position: absolute;
+  background-color: rgb(78, 78, 78);
+  width: 300px;
+  height: 800px;
+  filter: blur(200px);
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.animated_balls:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-name: moveAndBlur1;
+}
+
+.animated_balls:nth-child(2) {
+  top: 50%;
+  left: 40%;
+  animation-name: moveAndBlur2;
+}
+
+.animated_balls:nth-child(3) {
+  top: 80%;
+  left: 70%;
+  animation-name: moveAndBlur3;
+}
+
+@keyframes moveAndBlur1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(200px, 100px) scale(1.2);
+  }
+}
+
+@keyframes moveAndBlur2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-100px, 200px) scale(1.2);
+  }
+}
+
+@keyframes moveAndBlur3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(100px, -200px) scale(1.2);
+  }
+}
+
 /* font-family: "Bebas Neue", sans-serif; */
 /* font-family: "Poppins", sans-serif; */
 
 .btn {
-  background-image: linear-gradient(
-    to right,
-    #121313 0%,
-    #2d2e30 51%,
-    #232526 100%
-  );
-  padding: 5px 40px;
   font-size: 40px;
   cursor: pointer;
   font-family: "Bebas Neue", sans-serif;
-  text-align: center;
   text-transform: uppercase;
-  transition: 0.5s;
-  border: none;
-  background-size: 250% auto;
-  color: white;
+  padding: 10px 45px;
   border-radius: 5px;
-  display: block;
+  transition: 0.5s;
+  color: white;
+  background: rgba(0, 0, 0, 0.188);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(140, 140, 140, 0.65);
 }
 
 .btn:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
+  background: rgba(255, 255, 255, 0.703);
+  backdrop-filter: blur(80px);
+  color: black;
+  -webkit-backdrop-filter: blur(80px);
+  border: 1px solid rgba(0, 0, 0, 0.65);
 }
 
 .btn:active {
-  background-position: left center;
-  color: #fff;
-  text-decoration: none;
+  background: white;
+}
+
+@media only screen and (max-width: 905px) {
+  .animated_balls {
+    filter: blur(100px);
+    width: 100px;
+  }
 }
