@@ -24,15 +24,15 @@ function Contact() {
                   <span>Select your package :</span>
                   <div className={styles.package_area}>
                     <div>
-                      <input type="radio" name="basic" id="basic" checked />
+                      <input type="radio" name="packages" id="basic" />
                       <label htmlFor="basic">Basic</label>
                     </div>
                     <div>
-                      <input type="radio" name="basic" id="pro" checked />
+                      <input type="radio" name="packages" id="pro" />
                       <label htmlFor="pro">Pro</label>
                     </div>
                     <div>
-                      <input type="radio" name="basic" id="epic" checked />
+                      <input type="radio" name="packages" id="epic" />
                       <label htmlFor="epic">Epic</label>
                     </div>
                   </div>

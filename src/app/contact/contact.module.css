@@ -108,7 +108,7 @@
   display: none;
 }
 
-.package_area div input:checked + label {
+.package_area div input[type="radio"]:checked + label {
   background-color: white;
   color: black;
 }

@@ -5,7 +5,9 @@ import aboutImage from "../../../public/about_image.png";
 function About() {
   return (
     <>
-      <section className={styles.about_section}>
+      <section
+        className={styles.about_section}
+      >
         <div className={styles.about_area}>
           <div className={styles.about_container}>
             <Image

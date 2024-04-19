@@ -40,7 +40,7 @@ export let full_screen_menu_links_animation = {
 export let all_section_animation = {
   initial: {
     opacity: 0,
-    y: 200,
+    y: -20,
     filter: "blur(15px)",
   },
   visible: {
