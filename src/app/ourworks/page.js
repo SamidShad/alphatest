@@ -1,7 +1,7 @@
 import styles from "./ourworks.module.css";
 import Image from "next/image";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import TempMocImage from "../../../public/moc.jpg";
+import WebIntro from "@/Components/WebIntro/intro";
 import TempMocImage2 from "../../../public/moc2.webp";
 import TempMocImage3 from "../../../public/moc3.jpg";
 import TempMocImage4 from "../../../public/moc4.jpg";
@@ -11,6 +11,7 @@ import Footer from "@/Components/Footer/footer";
 function OurWorks() {
   return (
     <>
+      <WebIntro sectionName="Masterpice" />
       <section className={styles.our_works_page}>
         <h1>Our Works</h1>
         <div className={styles.our_works_area}>

@@ -1,9 +1,11 @@
 import Footer from "@/Components/Footer/footer";
+import WebIntro from "@/Components/WebIntro/intro";
 import styles from "./contact.module.css";
 
 function Contact() {
   return (
     <>
+      <WebIntro sectionName="Let's Talk" />
       <section className={styles.contact_page}>
         <div className={styles.contact_page_header_area}>
           <div className={styles.contact_page_header_contianer}>

@@ -37,18 +37,15 @@ export let full_screen_menu_links_animation = {
   },
 };
 
-export let all_section_animation = {
+export let webIntroAnimation = {
   initial: {
-    opacity: 0,
-    y: -20,
-    filter: "blur(15px)",
+    y: 0,
   },
   visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
+    y: -810,
     transition: {
       duration: 0.5,
+      ease: "easeIn",
     },
   },
 };
