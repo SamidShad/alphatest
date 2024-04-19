@@ -45,6 +45,7 @@ export let webIntroAnimation = {
     y: -810,
     transition: {
       duration: 0.5,
+      delay: 0.7,
       ease: "easeIn",
     },
   },
