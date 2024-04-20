@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./pricing.module.css";
 import pricingCardLogo from "../../../public/logo.png";
+import Link from "next/link";
 function Pricing() {
   return (
     <>
@@ -33,9 +34,11 @@ function Pricing() {
                   <li>5GB Storage Space</li>
                 </ul>
               </div>
-              <button className={`btn ${styles.pricing_card_btn}`}>
-                Let's Start
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.pricing_card_btn}`}>
+                  Let's Start
+                </button>
+              </Link>
             </div>
             <div className={styles.pricing_cards}>
               <div className={styles.pricing_card_header}>
@@ -61,9 +64,11 @@ function Pricing() {
                   <li>5GB Storage Space</li>
                 </ul>
               </div>
-              <button className={`btn ${styles.pricing_card_btn}`}>
-                Let's Start
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.pricing_card_btn}`}>
+                  Let's Start
+                </button>
+              </Link>
             </div>
             <div className={styles.pricing_cards}>
               <div className={styles.pricing_card_header}>
@@ -89,9 +94,11 @@ function Pricing() {
                   <li>5GB Storage Space</li>
                 </ul>
               </div>
-              <button className={`btn ${styles.pricing_card_btn}`}>
-                Let's Start
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.pricing_card_btn}`}>
+                  Let's Start
+                </button>
+              </Link>
             </div>
           </div>
         </div>

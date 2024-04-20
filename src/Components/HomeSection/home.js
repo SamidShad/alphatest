@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <>
-      <section className={styles.home_section}>
+      <section className={styles.home_section} id="home">
         <div className={styles.home_section_area}>
           <div className={styles.home_section_container}>
             <div className={styles.home_section_text_container}>

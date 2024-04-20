@@ -42,14 +42,18 @@ function Navbar() {
               className={styles.menu_links}
             >
               <ul>
-                <Link href="/">
+                <Link href="/#home">
                   <li onClick={MenuFunc}>Home</li>
                 </Link>
-                <li onClick={MenuFunc}>About us</li>
+                <Link href="/#about">
+                  <li onClick={MenuFunc}>About us</li>
+                </Link>
                 <Link href="/ourworks">
                   <li onClick={MenuFunc}>Our Works</li>
                 </Link>
-                <li onClick={MenuFunc}>Services</li>
+                <Link href="/#service">
+                  <li onClick={MenuFunc}>Services</li>
+                </Link>
                 <Link href="/contact">
                   <li onClick={MenuFunc}>Contact</li>
                 </Link>

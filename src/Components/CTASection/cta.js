@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./cta.module.css";
 import objectPNG from "../../../public/object.png";
+import Link from "next/link";
 
 function CTA() {
   return (
@@ -14,9 +15,11 @@ function CTA() {
                 <p>Available for new projects</p>
                 <div className={styles.available_circle}></div>
               </div>
-              <button className={`btn ${styles.cta_section_btn}`}>
-                Contact
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.cta_section_btn}`}>
+                  Contact
+                </button>
+              </Link>
             </div>
             <Image src={objectPNG} className={styles.section_object}></Image>
           </div>

@@ -42,10 +42,10 @@ export let webIntroAnimation = {
     y: 0,
   },
   visible: {
-    y: -810,
+    y: -1300,
     transition: {
       duration: 0.5,
-      delay: 0.7,
+      delay: 0.8,
       ease: "easeIn",
     },
   },
