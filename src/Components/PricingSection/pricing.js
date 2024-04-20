@@ -94,7 +94,7 @@ function Pricing() {
                   <li>5GB Storage Space</li>
                 </ul>
               </div>
-              <Link href="/">
+              <Link href="/contact">
                 <button className={`btn ${styles.pricing_card_btn}`}>
                   Let's Start
                 </button>
