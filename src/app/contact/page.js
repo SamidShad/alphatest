@@ -1,8 +1,64 @@
+"use client";
 import Footer from "@/Components/Footer/footer";
 import WebIntro from "@/Components/WebIntro/intro";
 import styles from "./contact.module.css";
+import { useState } from "react";
 
 function Contact() {
+  const [emailDetails, setEmailDetails] = useState({
+    name: "",
+    email: "",
+    message: "",
+    packages: "",
+  });
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setEmailDetails((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+
+  function EmailSender() {
+    const { name, email, message, package: packages } = emailDetails;
+
+    if (!name || !email || !message || !packages) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    if (name && email && message && packages) {
+      Email.send({
+        SecureToken: "e632328f-1014-4b01-aaa0-099713941015",
+        To: "samidshad@gmail.com",
+        From: "websitevisitor4@gmail.com",
+        Subject: "Client's Message !!",
+        Body: `
+        <h1> Name: ${name} </h1>
+        <br/>
+        <h1> Email: ${email} </h1>
+        <br/>
+        <h1> Message: ${message} </h1>
+        <br/>
+        <h1> Package: ${packages} </h1>    
+        `,
+      })
+        .then((response) => {
+          alert("Email sent successfully:", response);
+          setEmailDetails({
+            name: "",
+            email: "",
+            message: "",
+            packages: "",
+          });
+        })
+        .catch((error) => {
+          alert("Email send failed:", error);
+        });
+    }
+  }
+
   return (
     <>
       <WebIntro sectionName="Let's Talk" />
@@ -21,34 +77,71 @@ function Contact() {
             <div className={styles.contact_card}>
               <div className={styles.contact_card_sides}>
                 <div className={styles.contact_card_side_1}>
-                  <input type="text" name="username" placeholder="Name" />
-                  <input type="text" name="useremail" placeholder="Email" />
+                  <input
+                    type="text"
+                    name="name"
+                    onChange={handleChange}
+                    placeholder="Name"
+                    value={emailDetails.name}
+                  />
+                  <input
+                    type="text"
+                    name="email"
+                    onChange={handleChange}
+                    placeholder="Email"
+                    value={emailDetails.email}
+                  />
                   <span>Select your package :</span>
                   <div className={styles.package_area}>
                     <div>
-                      <input type="radio" name="packages" id="basic" />
+                      <input
+                        type="radio"
+                        name="package"
+                        id="basic"
+                        value="basic"
+                        onChange={handleChange}
+                      />
                       <label htmlFor="basic">Basic</label>
                     </div>
                     <div>
-                      <input type="radio" name="packages" id="pro" />
+                      <input
+                        type="radio"
+                        name="package"
+                        id="pro"
+                        value="pro"
+                        onChange={handleChange}
+                      />
                       <label htmlFor="pro">Pro</label>
                     </div>
                     <div>
-                      <input type="radio" name="packages" id="epic" />
+                      <input
+                        type="radio"
+                        name="package"
+                        id="epic"
+                        value="epic"
+                        onChange={handleChange}
+                      />
                       <label htmlFor="epic">Epic</label>
                     </div>
                   </div>
                 </div>
                 <div className={styles.contact_card_side_2}>
                   <textarea
-                    name="usermessage"
+                    name="message"
+                    onChange={handleChange}
+                    value={emailDetails.message}
                     placeholder="Message"
                     cols="30"
                     rows="10"
                   ></textarea>
                 </div>
               </div>
-              <button className={`btn ${styles.contact_card_btn}`}>Send</button>
+              <button
+                className={`btn ${styles.contact_card_btn}`}
+                onClick={EmailSender}
+              >
+                Send
+              </button>
             </div>
           </div>
         </div>
