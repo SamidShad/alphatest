@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./about.module.css";
 import aboutImage from "../../../public/about_image.png";
+import Link from "next/link";
 
 function About() {
   return (
@@ -25,9 +26,11 @@ function About() {
                 Doloremque eius animi quas iure consequatur? Ad cum earum,
                 pariatur omnis
               </p>
-              <button className={`btn ${styles.about_section_btn}`}>
-                Start a project
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.about_section_btn}`}>
+                  Start a project
+                </button>
+              </Link>
             </div>
           </div>
         </div>

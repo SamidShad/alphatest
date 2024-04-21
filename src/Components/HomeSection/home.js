@@ -2,6 +2,7 @@
 import styles from "./home.module.css";
 import TextTransition, { presets } from "react-text-transition";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const TEXTS = ["Design", "Development", "SEO"];
 
@@ -29,9 +30,11 @@ function Home() {
                   </TextTransition>
                 </span>
               </div>
-              <button className={`btn ${styles.home_section_btn}`}>
-                Start a project
-              </button>
+              <Link href="/contact">
+                <button className={`btn ${styles.home_section_btn}`}>
+                  Start a project
+                </button>
+              </Link>
             </div>
           </div>
         </div>

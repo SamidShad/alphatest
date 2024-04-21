@@ -3,6 +3,8 @@ import Footer from "@/Components/Footer/footer";
 import WebIntro from "@/Components/WebIntro/intro";
 import styles from "./contact.module.css";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   const [emailDetails, setEmailDetails] = useState({
@@ -23,9 +25,11 @@ function Contact() {
   function EmailSender() {
     const { name, email, message, package: packages } = emailDetails;
 
-    if (!name || !email || !message || !packages) {
-      alert("Please fill all required fields.");
+    if (!name || !email || !message) {
+      toast.error("Please fill all required fields");
       return;
+    } else if (!packages) {
+      toast.error("Select your package");
     }
 
     if (name && email && message && packages) {
@@ -44,8 +48,8 @@ function Contact() {
         <h1> Package: ${packages} </h1>    
         `,
       })
-        .then((response) => {
-          alert("Email sent successfully:", response);
+        .then(() => {
+          toast.success(`Email sent successfully`);
           setEmailDetails({
             name: "",
             email: "",
@@ -54,7 +58,7 @@ function Contact() {
           });
         })
         .catch((error) => {
-          alert("Email send failed:", error);
+          toast.error(`Email send failed ${error}`);
         });
     }
   }
