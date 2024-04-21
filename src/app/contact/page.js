@@ -5,6 +5,7 @@ import styles from "./contact.module.css";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import isEmail from "validator/lib/isEmail";
 
 function Contact() {
   const [emailDetails, setEmailDetails] = useState({
@@ -28,38 +29,64 @@ function Contact() {
     if (!name || !email || !message) {
       toast.error("Please fill all required fields");
       return;
+    } else if (!isEmail(email)) {
+      toast.error("Use a valid email address");
     } else if (!packages) {
       toast.error("Select your package");
-    }
-
-    if (name && email && message && packages) {
-      Email.send({
-        SecureToken: "e632328f-1014-4b01-aaa0-099713941015",
-        To: "samidshad@gmail.com",
-        From: "websitevisitor4@gmail.com",
-        Subject: "Client's Message !!",
-        Body: `
-        <h1> Name: ${name} </h1>
-        <br/>
-        <h1> Email: ${email} </h1>
-        <br/>
-        <h1> Message: ${message} </h1>
-        <br/>
-        <h1> Package: ${packages} </h1>    
+    } else {
+      name &&
+        email &&
+        packages &&
+        message &&
+        Email.send({
+          SecureToken: process.env.NEXT_PUBLIC_CONTACT_KEY,
+          To: process.env.NEXT_PUBLIC_TO_EMAIL,
+          From: process.env.NEXT_PUBLIC_FROM_EMAIL,
+          Subject: "Client's Message !!",
+          Body: `
+          <div
+          style="
+            background-color: black;
+            padding: 10px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+          "
+        >
+          <h1 style="margin: 10px; text-align: center; font-weight: bolder">
+            WEBLIFIX
+          </h1>
+          <div
+            style="
+              font-weight: bold;
+              padding: 10px;
+              background-color: #222222;
+              border: 1px solid white;
+            "
+          >
+            <span style="margin: 10px; font-size: 20px">Name: ${name}</span>
+            <br/>
+            <span style="margin: 10px; font-size: 20px">Email: ${email}</span>
+            <br/>
+            <span style="margin: 10px; font-size: 20px">Message: ${message}</span>
+            <br/>
+            <span style="margin: 10px; font-size: 20px">Package: ${packages}</span>
+          </div>
+        </div>
         `,
-      })
-        .then(() => {
-          toast.success(`Email sent successfully`);
-          setEmailDetails({
-            name: "",
-            email: "",
-            message: "",
-            packages: "",
-          });
         })
-        .catch((error) => {
-          toast.error(`Email send failed ${error}`);
-        });
+          .then(() => {
+            toast.success(`Email sent successfully`);
+            setEmailDetails({
+              name: "",
+              email: "",
+              message: "",
+              packages: "",
+            });
+          })
+          .catch((error) => {
+            toast.error(`Email send failed ${error}`);
+          });
     }
   }
 
